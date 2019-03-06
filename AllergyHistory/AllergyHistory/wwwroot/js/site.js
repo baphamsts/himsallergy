@@ -34,9 +34,56 @@ $(document).ready(function () {
                     return "<a href='#' class='btn btn-danger' onclick=DeleteData('" + row.CustomerID + "'); >Delete</a>";
                 }
             },
-        ]
+        ],
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                text: 'Change View',
+                autoPrint: false,
+                customize: function (win) {
+                    $(win.document.body)
+                        .css('font-size', '10pt');
 
+                    $(win.document.body).find('table')
+                        .addClass('compact')
+                        .css('font-size', 'inherit');
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Print List',
+                customize: function (win) {
+                    $(win.document.body)
+                        .css('font-size', '10pt');
+
+                    $(win.document.body).find('table')
+                        .addClass('compact')
+                        .css('font-size', 'inherit');
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Download as Exel',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                text: 'Download as PDF',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            }
+        ]
     });
+
+    $('.selectpicker').selectpicker();
 });
 
 
