@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-    $("#example").DataTable({
+    var dataTable = $("#example").DataTable({
         "processing": true, // for show progress bar
         "serverSide": true, // for process server side
         "filter": true, // this is for disable filter (search box)
@@ -83,6 +83,9 @@ $(document).ready(function () {
         ]
     });
 
+    dataTable.buttons().container()
+        .appendTo($('#printButtons'));
+
     $('.selectpicker').selectpicker();
 });
 
@@ -110,3 +113,5 @@ function Delete(CustomerID) {
         }
     });
 }
+
+
