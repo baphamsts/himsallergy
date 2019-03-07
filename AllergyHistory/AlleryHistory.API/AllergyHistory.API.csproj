@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AllergyHistory.DAL\AllergyHistory.DAL.csproj" />
   </ItemGroup>
 

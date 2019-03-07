@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllergyHistory.DAL", "Aller
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllergyHistory.Domain", "AllergyHistory.Domain\AllergyHistory.Domain.csproj", "{C86305DF-3E98-491E-AC6C-80153A7B2B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllergyHistory.Service", "AllergyHistory.Service\AllergyHistory.Service.csproj", "{703367F6-F24F-4A38-AA04-24863FB464E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllergyHistory.Service", "AllergyHistory.Service\AllergyHistory.Service.csproj", "{703367F6-F24F-4A38-AA04-24863FB464E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllergyHistory.Contract", "AllergyHistory.Contract\AllergyHistory.Contract.csproj", "{43DA005D-87BF-42E4-83CD-05B21E3EDE3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{703367F6-F24F-4A38-AA04-24863FB464E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{703367F6-F24F-4A38-AA04-24863FB464E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{703367F6-F24F-4A38-AA04-24863FB464E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43DA005D-87BF-42E4-83CD-05B21E3EDE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DA005D-87BF-42E4-83CD-05B21E3EDE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DA005D-87BF-42E4-83CD-05B21E3EDE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43DA005D-87BF-42E4-83CD-05B21E3EDE3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

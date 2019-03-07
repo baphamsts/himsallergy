@@ -7,18 +7,13 @@ $(document).ready(function () {
         "processing": true, // for show progress bar
         "serverSide": true, // for process server side
         "filter": true, // this is for disable filter (search box)
-        "orderMulti": false, // for disable multiple column at once
+        "ordering": false,
+
         "ajax": {
             "url": "/home/loadData",
             "type": "POST",
             "datatype": "json"
         },
-        //"columnDefs":
-        //    [{
-        //        "targets": [0],
-        //        "visible": false,
-        //        "searchable": false
-        //    }],
 
         "columns": [
             { "data": "patient", "name": "patient", "autoWidth": true },
@@ -35,7 +30,7 @@ $(document).ready(function () {
                 }
             },
         ],
-        dom: '<"allergy-table-button"B>rt<"allergy-table-len"l>ip',
+        dom: '<"allergy-table-button"B>rt<"allergy-table-len"l>ipf',
         buttons: [
             {
                 extend: 'print',
@@ -82,9 +77,6 @@ $(document).ready(function () {
             }
         ]
     });
-
-    //dataTable.buttons().container()
-    //    .appendTo($('#printButtons'));
 
     $('.selectpicker').selectpicker();
 });

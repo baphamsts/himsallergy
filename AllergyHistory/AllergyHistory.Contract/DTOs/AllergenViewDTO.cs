@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HimsAllergyPage.ViewModels
+namespace AllergyHistory.Contract.DTOs
 {
-    public class AllergenSeverityViewModel
+    public class AllergenViewDTO
     {
         public int CodeId { get; set; }
         public string CodeDesc { get; set; }

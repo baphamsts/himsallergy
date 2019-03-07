@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HimsAllergyPage.ViewModels
+namespace AllergyHistory.Contract.DTOs
 {
-    public class HistoryDataViewModel
+    public class AllergenHistoryViewModel
     {
         public string Patient { get; set; }
         public string Type { get; set; }

@@ -6,6 +6,10 @@ using System.Text;
 
 namespace AllergyHistory.DAL.Repositories
 {
+    /// <summary>
+    /// This patient Repository for test that this solution can work with an persistence database
+    /// Already test and up and running, but this has no longer used anymore, due to we just want using fake data instead
+    /// </summary>
     public class PatientRepository : IRepository<Patient>
     {
         readonly AllergyHistoryContext dbContext;

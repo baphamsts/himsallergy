@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HimsAllergyPage.ViewModels
+namespace AllergyHistory.Contract.DTOs
 {
-    public class ClientViewModel
+    public class ClientViewDTO
     {
         public string ClientId { get; set; }
         public string ClientName { get; set; }

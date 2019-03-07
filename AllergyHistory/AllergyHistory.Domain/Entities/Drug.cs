@@ -3,14 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AllergyHistory.Domain.Entities
 {
-    public class AllergenReaction
+    /// <summary>
+    /// Medication map to drug table
+    /// </summary>
+    public class Drug
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int CodeId { get; set; }
-        public string CodeDesc { get; set; }
-        public int CodeValue { get; set; }
-        public int TypeId { get; set; }
+        public string DrugName { get; set; }
+        public string LexiDrugId { get; set; }
     }
 }
