@@ -61,81 +61,72 @@ namespace AllergyHistory.DAL.Repositories
         /// <returns></returns>
         private IEnumerable<AllergenHistory>  generateFakeData()
         {
-            /// Fake data here, may be it will collect the data from
-
             var data = new List<AllergenHistory>();
 
             var fakeDomainEntity = new AllergenHistory();
-            fakeDomainEntity.Id = 1;
-            fakeDomainEntity.PatientId = 1;
-            fakeDomainEntity.PatientName = "Test Name ";
-            fakeDomainEntity.CISId = "0742031237";
-            fakeDomainEntity.DOB = DateTime.Now;
-            fakeDomainEntity.Gender = "Male";
-            fakeDomainEntity.Provider = "Redcedar";
-            fakeDomainEntity.Population = "Adult";
-            fakeDomainEntity.AxisI = "F25.0";
-            fakeDomainEntity.AxisIDesc = "Disoder";
-            fakeDomainEntity.ClientAllergyId = 1;
-            fakeDomainEntity.Allergen = "Reveal Blood";
-            fakeDomainEntity.deleted = false;
-            fakeDomainEntity.Notes = "Test notes";
-            fakeDomainEntity.CreateUser = "User 1";
-            fakeDomainEntity.CreateDate = DateTime.Now;
-            fakeDomainEntity.UpdateUser = "User 2";
-            fakeDomainEntity.UpdateDate = DateTime.Now;
-            fakeDomainEntity.Deleted = false;
-            fakeDomainEntity.AllergenId = 1;
-            fakeDomainEntity.AllergenType = 1;
-            fakeDomainEntity.ReactionId = 1;
-            fakeDomainEntity.SeverityId = 1;
-            fakeDomainEntity.ReactionDesc = "Diarrhea";
-            fakeDomainEntity.SeverityDesc = "Life Threatening";
-            fakeDomainEntity.Type = "Medication";
-            fakeDomainEntity.DrugName = "Vitro Strip";
+            fakeDomainEntity.Id                 = 1;
+            fakeDomainEntity.PatientId          = 1;
+            fakeDomainEntity.PatientName        = "Test Name ";
+            fakeDomainEntity.CISId              = "0742031237";
+            fakeDomainEntity.DOB                = DateTime.Now;
+            fakeDomainEntity.Gender             = "Male";
+            fakeDomainEntity.Provider           = "Redcedar";
+            fakeDomainEntity.Population         = "Adult";
+            fakeDomainEntity.AxisI              = "F25.0";
+            fakeDomainEntity.AxisIDesc          = "Disoder";
+            fakeDomainEntity.ClientAllergyId    = 1;
+            fakeDomainEntity.Allergen           = "Reveal Blood";
+            fakeDomainEntity.deleted            = false;
+            fakeDomainEntity.Notes              = "Test notes";
+            fakeDomainEntity.CreateUser         = "User 1";
+            fakeDomainEntity.CreateDate         = DateTime.Now;
+            fakeDomainEntity.UpdateUser         = "User 2";
+            fakeDomainEntity.UpdateDate         = DateTime.Now;
+            fakeDomainEntity.Deleted            = false;
+            fakeDomainEntity.AllergenId         = 1;
+            fakeDomainEntity.AllergenType       = 1;
+            fakeDomainEntity.ReactionId         = 1;
+            fakeDomainEntity.SeverityId         = 1;
+            fakeDomainEntity.ReactionDesc       = "Diarrhea";
+            fakeDomainEntity.SeverityDesc       = "Life Threatening";
+            fakeDomainEntity.Type               = "Medication";
+            fakeDomainEntity.DrugName           = "Vitro Strip";
             fakeDomainEntity.CreateDateWithTime = DateTime.Now;
             fakeDomainEntity.UpdateDateWithTime = DateTime.Now;
-
-
-            /*
- * <row ClientId="29355" 
- * ClientName="DOBIESZ,ALITA" 
- * CISId="0742031237" 
- * DOB="08/03/2001" 
- * Gender="Male" 
- * Provider="Redcedar" 
- * Population="Children" 
- * AxisI="F25.0" 
- * AxisIDesc="Schizoaffective disorder,bipolar type" 
- * ClientAllergyId="13399" 
- * Allergen="Reveal Blood Glucose Test In Vitro Strip" 
- * deleted="0" 
- * Notes="Just don't let him use these, OK??? (edit 2)" 
- * CreateUser="squinn" 
- * CreateDate="02/08/2018" 
- * UpdateUser="rkey" 
- * UpdateDate="02/22/2018" 
- * Deleted="0" 
- * AllergenId="31993" 
- * AllergenType="612" 
- * ReactionId="616" 
- * SeverityId="633" 
- * ReactionDesc="Diarrhea" 
- * SeverityDesc="Life Threatening" 
- * Type="Medication" 
- * DrugName="Reveal Blood Glucose Test In Vitro Strip" 
- * CreateDateWithTime="2018-02-08T13:06:45.763" 
- * UpdateDateWithTime="2018-02-22T09:09:14.690" />
- */
-
 
             for (int i = 0; i < 10; i++)
             {
                 // Dummy some differ data to observe
                 var temp = new AllergenHistory();
-               
-                temp.Type = i % 2 == 0 ? "Medication" : "Allegen";
-                temp.Allergen = "Amoxicillin";
+                temp.Id                 = fakeDomainEntity.Id;
+                temp.PatientId          = fakeDomainEntity.PatientId;
+                temp.PatientName        = fakeDomainEntity.PatientName;
+                temp.CISId              = fakeDomainEntity.CISId;
+                temp.DOB                = fakeDomainEntity.DOB;
+                temp.Gender             = fakeDomainEntity.Gender;
+                temp.Provider           = fakeDomainEntity.Provider;
+                temp.Population         = fakeDomainEntity.Population;
+                temp.AxisI              = fakeDomainEntity.AxisI;
+                temp.AxisIDesc          = fakeDomainEntity.AxisIDesc;
+                temp.ClientAllergyId    = fakeDomainEntity.ClientAllergyId;
+                temp.Allergen           = fakeDomainEntity.Allergen;
+                temp.deleted            = fakeDomainEntity.deleted;
+                temp.Notes              = fakeDomainEntity.Notes;
+                temp.CreateUser         = fakeDomainEntity.CreateUser;
+                temp.CreateDate         = fakeDomainEntity.CreateDate;
+                temp.UpdateUser         = fakeDomainEntity.UpdateUser;
+                temp.UpdateDate         = fakeDomainEntity.UpdateDate;
+                temp.Deleted            = fakeDomainEntity.Deleted;
+                temp.AllergenId         = fakeDomainEntity.AllergenId;
+                temp.AllergenType       = fakeDomainEntity.AllergenType;
+                temp.ReactionId         = fakeDomainEntity.ReactionId;
+                temp.SeverityId         = fakeDomainEntity.SeverityId;
+                temp.ReactionDesc       = fakeDomainEntity.ReactionDesc;
+                temp.SeverityDesc       = fakeDomainEntity.SeverityDesc;
+                temp.Type               = fakeDomainEntity.Type;
+                temp.DrugName           = fakeDomainEntity.DrugName;
+                temp.CreateDateWithTime = fakeDomainEntity.CreateDateWithTime;
+                temp.UpdateDateWithTime = fakeDomainEntity.UpdateDateWithTime;
 
 
                 for (int j = 0; j < 10; j++)

@@ -65,19 +65,6 @@ body {
     flex-direction: row;
 }
 
-.prefix-box-icon {
-    background: #ddd;
-}
-
-.input-with-icon {
-    border: none;
-    flex: 1;
-}
-
-.prefix-box-icon, .input-with-icon {
-    padding: 10px;
-}
-
 .collapsible {
     background-color: #808080;
     color: white;

@@ -8,6 +8,10 @@ $(document).ready(function () {
         "serverSide": true, // for process server side
         "filter": true, // this is for disable filter (search box)
         "ordering": false,
+        "language": {
+            search: '',
+            searchPlaceholder: "Search by Patient"
+        },
 
         "ajax": {
             "url": "/home/loadData",
@@ -30,11 +34,11 @@ $(document).ready(function () {
                 }
             },
         ],
-        dom: '<"allergy-table-button"B>rt<"allergy-table-len"l>ipf',
+        dom: '<"allergy-searchbox col-md-6 col-sm-12"f><"allergy-table-button"B>rt<"allergy-table-len"l>ip',
         buttons: [
             {
                 extend: 'print',
-                text: 'Change View',
+                text: 'Preview',
                 autoPrint: false,
                 customize: function (win) {
                     $(win.document.body)
@@ -47,7 +51,7 @@ $(document).ready(function () {
             },
             {
                 extend: 'print',
-                text: 'Print List',
+                text: 'Print',
                 customize: function (win) {
                     $(win.document.body)
                         .css('font-size', '10pt');
@@ -59,7 +63,7 @@ $(document).ready(function () {
             },
             {
                 extend: 'excelHtml5',
-                text: 'Download as Exel',
+                text: 'Excel',
                 exportOptions: {
                     modifier: {
                         page: 'current'
@@ -68,7 +72,7 @@ $(document).ready(function () {
             },
             {
                 extend: 'pdfHtml5',
-                text: 'Download as PDF',
+                text: 'PDF',
                 exportOptions: {
                     modifier: {
                         page: 'current'
