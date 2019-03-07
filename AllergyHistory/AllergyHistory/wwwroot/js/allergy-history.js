@@ -35,7 +35,7 @@ $(document).ready(function () {
                 }
             },
         ],
-        dom: 'Bfrtip',
+        dom: '<"allergy-table-button"B>rt<"allergy-table-len"l>ip',
         buttons: [
             {
                 extend: 'print',
@@ -83,8 +83,8 @@ $(document).ready(function () {
         ]
     });
 
-    dataTable.buttons().container()
-        .appendTo($('#printButtons'));
+    //dataTable.buttons().container()
+    //    .appendTo($('#printButtons'));
 
     $('.selectpicker').selectpicker();
 });
