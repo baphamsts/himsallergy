@@ -76,7 +76,6 @@ namespace AllergyHistory.DAL.Repositories
             fakeDomainEntity.AxisIDesc          = "Disoder";
             fakeDomainEntity.ClientAllergyId    = 1;
             fakeDomainEntity.Allergen           = "Reveal Blood";
-            fakeDomainEntity.deleted            = false;
             fakeDomainEntity.Notes              = "Test notes";
             fakeDomainEntity.CreateUser         = "User 1";
             fakeDomainEntity.CreateDate         = DateTime.Now;
@@ -110,7 +109,6 @@ namespace AllergyHistory.DAL.Repositories
                 temp.AxisIDesc          = fakeDomainEntity.AxisIDesc;
                 temp.ClientAllergyId    = fakeDomainEntity.ClientAllergyId;
                 temp.Allergen           = fakeDomainEntity.Allergen;
-                temp.deleted            = fakeDomainEntity.deleted;
                 temp.Notes              = fakeDomainEntity.Notes;
                 temp.CreateUser         = fakeDomainEntity.CreateUser;
                 temp.CreateDate         = fakeDomainEntity.CreateDate;

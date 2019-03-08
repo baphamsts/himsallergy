@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AllergyHistory.Contract.DTOs;
+using AllergyHistory.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlleryHistory.API.Controllers
@@ -10,36 +12,19 @@ namespace AlleryHistory.API.Controllers
     [ApiController]
     public class AllergyHistoryController : ControllerBase
     {
+        private readonly IAllergyHistoryDataService allergyHistoryDataService;
+
+        public AllergyHistoryController(IAllergyHistoryDataService allergyHistoryDataService)
+        {
+            this.allergyHistoryDataService = allergyHistoryDataService;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<AllergenHistoryDTO>> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var data = allergyHistoryDataService.GetAllAllergenHistory();
+            return Ok(data);
         }
     }
 }

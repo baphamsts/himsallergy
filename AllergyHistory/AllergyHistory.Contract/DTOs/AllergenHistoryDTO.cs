@@ -12,7 +12,6 @@ namespace AllergyHistory.Contract.DTOs
     /// </summary>
     public class AllergenHistoryDTO
     {
-        public int Id { get; set; }
         public int ClientId { get; set; }
         public string ClientName { get; set; }
         public string CISId { get; set; }
@@ -24,7 +23,6 @@ namespace AllergyHistory.Contract.DTOs
         public string AxisIDesc { get; set; }
         public int ClientAllergyId { get; set; }
         public string Allergen { get; set; }
-        public bool deleted { get; set; }
         public string Notes { get; set; }
         public string CreateUser { get; set; }
         public DateTime CreateDate { get; set; }

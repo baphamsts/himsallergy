@@ -46,9 +46,9 @@ namespace AllergyHistory.Contract.Converters
         MedicationViewModel Convert(Drug drug);
 
         /// <summary>
-        /// Convert List of versions to List of allergenSeverityViewModel
+        /// Convert List of allergenSeverities to List of allergenSeverityViewModel
         /// </summary>
-        /// <param name="allergenSeverities">The list of versions</param>
+        /// <param name="allergenSeverities">The list of allergenSeverities</param>
         /// <returns>The list of allergenSeverityViewModel</returns>
         List<AllergenSeverityViewModel> Convert(IEnumerable<AllergenSeverity> allergenSeverities);
 

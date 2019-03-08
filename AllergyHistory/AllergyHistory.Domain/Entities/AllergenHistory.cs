@@ -20,7 +20,6 @@ namespace AllergyHistory.Domain.Entities
         public string AxisIDesc { get; set; }
         public int ClientAllergyId { get; set; }
         public string Allergen { get; set; }
-        public bool deleted { get; set; }
         public string Notes { get; set; }
         public string CreateUser { get; set; }
         public DateTime CreateDate { get; set; }

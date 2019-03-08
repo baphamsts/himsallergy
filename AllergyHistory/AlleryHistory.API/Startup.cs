@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace AlleryHistory.API
 {
     public class Startup
@@ -41,12 +42,13 @@ namespace AlleryHistory.API
             services.AddScoped<IAllergenInputService, AllergenInputService>();
             services.AddScoped<IAllergyHistoryDataService, AllergyHistoryDataService>();
 
-
             services.AddCors(opts => opts.AddDefaultPolicy(
                 builder =>
                 {
                     builder.WithOrigins("*").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 }));
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AllergyHistory.Contract.ViewModels
 {
-    public class AllergenHistoryViewModel
+    public class AllergenHistoryDataTableViewModel
     {
+        public int Id { get; set; }
         public string Patient { get; set; }
         public string Type { get; set; }
         public string Allergen { get; set; }
