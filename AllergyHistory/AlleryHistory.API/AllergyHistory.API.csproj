@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AllergyHistory.Contract\AllergyHistory.Contract.csproj" />
     <ProjectReference Include="..\AllergyHistory.DAL\AllergyHistory.DAL.csproj" />
+    <ProjectReference Include="..\AllergyHistory.Service\AllergyHistory.Service.csproj" />
   </ItemGroup>
 
 </Project>

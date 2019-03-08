@@ -1,6 +1,8 @@
-﻿using AllergyHistory.DAL;
+﻿using AllergyHistory.Contract.Converters;
+using AllergyHistory.DAL;
 using AllergyHistory.DAL.Repositories;
 using AllergyHistory.Domain.Entities;
+using AllergyHistory.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +36,10 @@ namespace AlleryHistory.API
             services.AddScoped<IRepository<Drug>, DrugRepository>();
 
 
-
+            services.AddScoped<IAllergenInputConverter, AllergenInputConverter>();
+            services.AddScoped<IAllergyHistoryConverter, AllergyHistoryConverter>();
+            services.AddScoped<IAllergenInputService, AllergenInputService>();
+            services.AddScoped<IAllergyHistoryDataService, AllergyHistoryDataService>();
 
 
             services.AddCors(opts => opts.AddDefaultPolicy(

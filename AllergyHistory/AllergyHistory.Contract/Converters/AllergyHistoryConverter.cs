@@ -4,7 +4,7 @@ using System.Linq;
 using AllergyHistory.Contract.ViewModels;
 namespace AllergyHistory.Contract.Converters
 {
-    internal class AllergyHistoryConverter : IAllergyHistoryConverter
+    public class AllergyHistoryConverter : IAllergyHistoryConverter
     {
     }
 }

@@ -6,7 +6,7 @@ using AllergyHistory.Domain.Entities;
 
 namespace AllergyHistory.Contract.Converters
 {
-    internal class AllergenInputConverter : IAllergenInputConverter
+    public class AllergenInputConverter : IAllergenInputConverter
     {
         public AllergenSeverity Convert(AllergenSeverityViewModel allergenSeverityViewModel)
         {
