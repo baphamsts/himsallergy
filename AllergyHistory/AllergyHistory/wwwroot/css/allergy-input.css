@@ -3,3 +3,11 @@ for details on configuring this project to bundle and minify static web assets. 
 .allergy-input{
     margin-top: 14px;
 }
+
+.form-group div label{
+    font-weight: bold;
+}
+
+.form-buttons {
+    margin-bottom: 30px;
+}

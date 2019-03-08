@@ -1,7 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Allergy History";
-}
-
+﻿
 <div class="col-12">
     <button class="collapsible">Allergy History</button>
     <div class="content col-12">
@@ -12,7 +9,7 @@
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
-                
+
             </div>
 
             <div class="col-md-3 offset-md-4 col-sm-12 filter-box">
@@ -46,60 +43,84 @@
     </div>
 
     <button class="collapsible">Allergy Input</button>
-    <div class="content col-12">
-        <div class="allergy-input">
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group col-md-6">
-                    <label for="allergenTypeSelectBox">Allergen Type</label>
+    <div class="content overflow-hidden col-12">
+        <div class="row allergy-input">
+            <div class="col-md-3 col-sm-12">
+                <div class="form-group">
+                    <div><label for="allergenTypeSelectBox">Allergen Type</label> </div>
                     <select id="allergenTypeSelectBox" class="selectpicker show-tick">
-                        <option>All</option>
-                        <option>1 Year</option>
-                        <option>6 Month</option>
-                        <option>Most Recent</option>
+                        <option>Allergen</option>
+                        <option>Medication</option>
+                        <option>No Known Allergies</option>
+                        <option>Other</option>
+                        <option>LONG LONG options tiossss dfdfd Other</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="form-group col-md-6">
-                    <label for="allergenTypeSelectBox">Allergen Type</label>
-                    <select id="allergenTypeSelectBox" class="selectpicker show-tick">
-                        <option>All</option>
-                        <option>1 Year</option>
-                        <option>6 Month</option>
-                        <option>Most Recent</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="severitySelectBox">Severity</label>
+            <div class="col-md-3 offset-md-1 col-sm-12">
+                <div class="form-group">
+                    <div><label for="severitySelectBox">Severity</label></div>
                     <select id="severitySelectBox" class="selectpicker show-tick">
-                        <option>All</option>
-                        <option>1 Year</option>
-                        <option>6 Month</option>
-                        <option>Most Recent</option>
+                        <option>Life Threatening</option>
+                        <option>Low</option>
+                        <option>Moderate</option>
+                        <option>Severe</option>
+                        <option>Unknown</option>
+                        <option>N/A</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="form-group col-md-6">
-                    <label for="reactionSelectBox">Reaction</label>
+            <div class="col-md-3 offset-md-1 col-sm-12">
+                <div class="form-group">
+                    <div><label for="reactionSelectBox">Reaction</label></div>
                     <select id="reactionSelectBox" class="selectpicker show-tick">
-                        <option>All</option>
-                        <option>1 Year</option>
-                        <option>6 Month</option>
-                        <option>Most Recent</option>
+                        <option>Anaphylaxis</option>
+                        <option>Chest Pain</option>
+                        <option>Diarrhea</option>
+                        <option>Dizziness</option>
                     </select>
                 </div>
-
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group col-md-6">
-                    <label for="noteText">Notes</label>
-                    <textarea rows="4" class="form-control" id="noteText" placeholder="Apartment, studio, or floor"></textarea>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-3 col-sm-12">
+                <div class="form-group">
+                    <div><label for="allergenTypeSelectBox">Allergen</label></div>
+                    <select id="allergenTypeSelectBox" class="selectpicker show-tick">
+                        <option>Grass</option>
+                        <option>Pollen</option>
+                        <option>Naproxen</option>
+                        <option>Peanuts</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3 offset-md-1 col-sm-12">
+                <div class="form-group">
+                    <div><label for="allergenTypeSelectBox">Medication</label></div>
+                    <select id="allergenTypeSelectBox" class="selectpicker show-tick">
+                        <option>AMOXICILLIN</option>
+                        <option>AMITRIPTYLINE</option>
+                        <option>ACETAMINOPHEN</option>
+                        <option>ABILIFY</option>
+                    </select>
                 </div>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <div><label for="noteText">Notes</label></div>
+                <textarea rows="4" class="form-control" id="noteText" placeholder="The allergen notes"></textarea>
+            </div>
+        </div>
+
+        <div id="form-buttons" class="form-buttons">
             <button type="submit" class="btn btn-success">SUBMIT</button>
             <button type="submit" class="btn btn-warning">RESET</button>
         </div>
     </div>
-
 </div>
