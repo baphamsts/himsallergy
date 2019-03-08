@@ -17,11 +17,7 @@ namespace AllergyHistory.Controllers
         }
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            //var model = new AllergenPageModel();
             return View();
         }
 

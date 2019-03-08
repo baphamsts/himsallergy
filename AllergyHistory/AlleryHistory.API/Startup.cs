@@ -61,7 +61,7 @@ namespace AlleryHistory.API
             {
                 options.SwaggerDoc("v1", new Info
                 {
-                    Title = "HiMA Test API",
+                    Title = "HiMS Test API",
                     Version = "v1",
                     Description = "Hims Test API",
                     TermsOfService = "Saigon Technology Solutions"
