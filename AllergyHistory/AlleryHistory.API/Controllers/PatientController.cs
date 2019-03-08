@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AlleryHistory.API.Controllers
 {
+    /// <summary>
+    /// This used to test repository workign with database, but require to set a connection to a databse"
+    /// </summary>
+    /// 
+/*
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors]
@@ -95,52 +100,9 @@ namespace AlleryHistory.API.Controllers
         [HttpPost("loadData")]
         public IActionResult LoadData()
         {
-            try
-            {
-                var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
-                // Skiping number of Rows count  
-                var start = Request.Form["start"].FirstOrDefault();
-                // Paging Length 10,20  
-                var length = Request.Form["length"].FirstOrDefault();
-                // Sort Column Name  
-                var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
-                // Sort Column Direction ( asc ,desc)  
-                var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
-                // Search Value from (Search box)  
-                var searchValue = Request.Form["search[value]"].FirstOrDefault();
-
-                //Paging Size (10,20,50,100)  
-                int pageSize = length != null ? Convert.ToInt32(length) : 0;
-                int skip = start != null ? Convert.ToInt32(start) : 0;
-                int recordsTotal = 0;
-
-                // Getting all Customer data  
-                var customerData = patientRepository.GetAll_Q();
-
-                //Sorting  
-                //if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
-                //{
-                //    customerData = customerData.OrderBy<Patient>(sortColumn + " " + sortColumnDirection);
-                //}
-                //Search  
-                if (!string.IsNullOrEmpty(searchValue))
-                {
-                    customerData = customerData.Where(m => m.PatientName == searchValue);
-                }
-
-                //total number of rows count   
-                recordsTotal = customerData.Count();
-                //Paging   
-                var data = customerData.Skip(skip).Take(pageSize).ToList();
-                //Returning Json Data  
-                return new JsonResult(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
 
         }
     }
+
+  */
 }

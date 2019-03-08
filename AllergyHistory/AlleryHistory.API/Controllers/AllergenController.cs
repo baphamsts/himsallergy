@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using AllergyHistory.Contract.ViewModels;
 using AllergyHistory.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlleryHistory.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class AllergenController : ControllerBase
     {
         private readonly IAllergenInputService allergenInputService;
@@ -21,7 +23,7 @@ namespace AlleryHistory.API.Controllers
 
         // GET api/allergen/reactions
         [HttpGet("reactions")]
-        public ActionResult<IEnumerable<string>> GetAllegenReactions()
+        public ActionResult<IEnumerable<AllergenReactionViewModel>> GetAllegenReactions()
         {
             var data = allergenInputService.GetAllAllergenReaction();
             return Ok(data);
@@ -38,7 +40,7 @@ namespace AlleryHistory.API.Controllers
 
         // GET api/allergen/medications
         [HttpGet("medications")]
-        public ActionResult<IEnumerable<string>> GetMedications()
+        public ActionResult<IEnumerable<MedicationViewModel>> GetMedications()
         {
             var data = allergenInputService.GetAllMedication();
             return Ok(data);
@@ -48,7 +50,7 @@ namespace AlleryHistory.API.Controllers
 
         // GET api/allergen/types
         [HttpGet("types")]
-        public ActionResult<IEnumerable<string>> GetAllegenTypes()
+        public ActionResult<IEnumerable<AllergenTypeViewModel>> GetAllegenTypes()
         {
             var data = allergenInputService.GetAllAllergenType();
             return Ok(data);
@@ -56,7 +58,7 @@ namespace AlleryHistory.API.Controllers
 
         // GET api/allergen/allergens
         [HttpGet("allergens")]
-        public ActionResult<IEnumerable<string>> GetAllegens()
+        public ActionResult<IEnumerable<AllergenViewModel>> GetAllegens()
         {
             var data = allergenInputService.GetAllAllergen();
             return Ok(data);
