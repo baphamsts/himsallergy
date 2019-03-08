@@ -32,7 +32,7 @@ $(document).ready(function () {
             { "data": "updateInfo", "name": "updateInfo", "autoWidth": true },
             {
                 data: null, render: function (data, type, row) {
-                    return "<a href='#' class='btn btn-inf' onclick=EditData('" + row.patient + "'); >Edit</a>";
+                    return "<a href='#' class='btn btn-inf' onclick=EditDataInput('" + row.patient + "'); >Edit</a>";
                 }
             },
         ],

@@ -9,7 +9,7 @@ namespace AllergyHistory.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Desc { get; set; }
-        public int Value { get; set; }
+        public string Text { get; set; }
         public int TypeId { get; set; }
     }
 }

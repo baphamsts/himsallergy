@@ -24,9 +24,17 @@ namespace AlleryHistory.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AllergyHistoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:AllergyHistoyDB"]));
+
             services.AddScoped<IRepository<Patient>, PatientRepository>();
             services.AddScoped<IRepository<AllergenHistory>, AllegenHistoryRepository>();
-            services.AddScoped<IRepository<AllergenSeverity>, AllegenServerityRepository>();
+            services.AddScoped<IRepository<AllergenSeverity>, AllergenSeverityRepository>();
+            services.AddScoped<IRepository<AllergenType>, AllergenTypeRepository>();
+            services.AddScoped<IRepository<AllergenReaction>, AllergenReactionRepository>();
+            services.AddScoped<IRepository<Allergen>, AllergenRepository>();
+            services.AddScoped<IRepository<Drug>, DrugRepository>();
+
+
+
 
 
             services.AddCors(opts => opts.AddDefaultPolicy(
