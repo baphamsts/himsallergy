@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace AllergyHistory.Services
 {
-    public interface IAllergyHistoryDataService
+    public interface IAllergenInputService
     {
-        IEnumerable<AllergenHistoryViewModel> GetAll();
+        IEnumerable<AllergenSeverityViewModel> GetAll();
     }
 }

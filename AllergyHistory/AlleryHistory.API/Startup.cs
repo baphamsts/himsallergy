@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AllergyHistory.DAL;
+﻿using AllergyHistory.DAL;
 using AllergyHistory.DAL.Repositories;
 using AllergyHistory.Domain.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -11,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace AlleryHistory.API
 {
@@ -31,6 +25,10 @@ namespace AlleryHistory.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AllergyHistoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:AllergyHistoyDB"]));
             services.AddScoped<IRepository<Patient>, PatientRepository>();
+            services.AddScoped<IRepository<AllergenHistory>, AllegenHistoryRepository>();
+            services.AddScoped<IRepository<AllergenSeverity>, AllegenServerityRepository>();
+
+
             services.AddCors(opts => opts.AddDefaultPolicy(
                 builder =>
                 {

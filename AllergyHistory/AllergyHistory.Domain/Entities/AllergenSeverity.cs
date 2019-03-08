@@ -8,9 +8,8 @@ namespace AllergyHistory.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int CodeId { get; set; }
-        public string CodeDesc { get; set; }
-        public int CodeValue { get; set; }
+        public string Desc { get; set; }
+        public int Value { get; set; }
         public int TypeId { get; set; }
     }
 }

@@ -13,6 +13,8 @@ $(document).ready(function () {
             searchPlaceholder: "Search by Patient"
         },
 
+        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+
         "ajax": {
             "url": "/home/loadData",
             "type": "POST",
@@ -59,14 +61,20 @@ $(document).ready(function () {
                     $(win.document.body).find('table')
                         .addClass('compact')
                         .css('font-size', 'inherit');
-                }
+                },
+                className: 'btn default',
+                oSelectorOpts: {
+                    page: 'all'
+                },
+                bShowAll: true,
+                sAjaxSource: "/home/loadData"
             },
             {
                 extend: 'excelHtml5',
                 text: 'Excel',
                 exportOptions: {
                     modifier: {
-                        page: 'current'
+                        page: 'all'
                     }
                 }
             },
@@ -75,7 +83,7 @@ $(document).ready(function () {
                 text: 'PDF',
                 exportOptions: {
                     modifier: {
-                        page: 'current'
+                        page: 'all'
                     }
                 }
             }
@@ -84,6 +92,10 @@ $(document).ready(function () {
 
     $('.selectpicker').selectpicker();
 });
+
+function EditDataInput(AllergenHistoryId) {
+    
+}
 
 
 function DeleteData(CustomerID) {

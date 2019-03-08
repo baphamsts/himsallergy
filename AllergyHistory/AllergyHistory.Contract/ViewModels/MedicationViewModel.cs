@@ -1,9 +1,9 @@
-﻿namespace AllergyHistory.Contract.DTOs
+﻿namespace AllergyHistory.Contract.ViewModels
 {
     /// <summary>
     /// Medication map to drug table
     /// </summary>
-    public class MedicationDTO
+    public class MedicationViewModel
     {
         public int DrugId { get; set; }
         public string DrugName { get; set; }

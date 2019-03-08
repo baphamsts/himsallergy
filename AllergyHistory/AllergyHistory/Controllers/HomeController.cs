@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AllergyHistory.Models;
+using AllergyHistory.Services;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using AllergyHistory.Models;
-using AllergyHistory.Services;
 
 namespace AllergyHistory.Controllers
 {
@@ -36,7 +34,7 @@ namespace AllergyHistory.Controllers
                 var pageLength = Request.Form["length"].FirstOrDefault();
                 var searchPatientValue = Request.Form["search[value]"].FirstOrDefault();
 
-                //Paging Size (10,20,50,100)  
+                //Paging Size (10,20,50,100, all = -1)  
                 int pageSize = pageLength != null ? Convert.ToInt32(pageLength) : 0;
                 int skip = start != null ? Convert.ToInt32(start) : 0;
                 int recordsTotal = 0;
@@ -50,7 +48,8 @@ namespace AllergyHistory.Controllers
                 }
 
                 recordsTotal = allergyHistoryData.Count();
-                var data = allergyHistoryData.Skip(skip).Take(pageSize);
+
+                var data = pageSize == -1 ? allergyHistoryData : allergyHistoryData.Skip(skip).Take(pageSize);
                 return new JsonResult(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
             }
             catch (Exception)

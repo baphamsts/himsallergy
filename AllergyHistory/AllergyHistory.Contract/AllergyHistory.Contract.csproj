@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Converters\" />
+    <ProjectReference Include="..\AllergyHistory.Domain\AllergyHistory.Domain.csproj" />
   </ItemGroup>
 
 </Project>
