@@ -9,13 +9,6 @@ namespace AllergyHistory.Contract.Converters
     public interface IAllergenInputConverter
     {
         /// <summary>
-        /// Convert AllergenSeverityViewModel to AllergenSeverity
-        /// </summary>
-        /// <param name="allergenSeverityViewModel">The AllergenSeverityViewModel</param>
-        /// <returns>The AllergenSeverity</returns>
-        AllergenSeverity Convert(AllergenSeverityViewModel allergenSeverityViewModel);
-
-        /// <summary>
         /// Convert AllergenSeverity to AllergenSeverityViewModel
         /// </summary>
         /// <param name="allergenSeverity">The AllergenSeverity</param>
@@ -23,24 +16,73 @@ namespace AllergyHistory.Contract.Converters
         AllergenSeverityViewModel Convert(AllergenSeverity allergenSeverity);
 
         /// <summary>
-        /// Convert List of versions to List of UserViewModels
+        /// Convert AllergenType to AllergenTypeViewModel
         /// </summary>
-        /// <param name="users">The list of versions</param>
-        /// <returns>The list of UserViewModels</returns>
-        List<AllergenSeverityViewModel> Convert(IEnumerable<AllergenSeverity> users);
+        /// <param name="allergenSeverity">The AllergenType</param>
+        /// <returns>The AllergenTypeViewModel</returns>
+        AllergenTypeViewModel Convert(AllergenType allergenType);
 
         /// <summary>
-        /// Convert List of UserViewModels to List of Users
+        /// Convert Allergen to AllergenViewModel
         /// </summary>
-        /// <param name="userViewModels">The list of UserViewModels</param>
-        /// <returns>The list of Users</returns>
-        List<AllergenSeverity> Convert(List<AllergenSeverityViewModel> userViewModels);
+        /// <param name="allergen">The Allergen</param>
+        /// <returns>The AllergenTypeViewModel</returns>
+        AllergenViewModel Convert(Allergen allergen);
+
 
         /// <summary>
-        /// Convert AllergenSeverityViewModel to AllergenSeverity
+        /// Convert AllergenReaction to AllergenReactioneViewModel
         /// </summary>
-        /// <param name="allergenSeverityViewModel">The AllergenSeverityViewModel</param>
-        /// <returns>The AllergenSeverity</returns>
-        AllergenSeverity Patch(AllergenSeverityViewModel allergenSeverityViewModel, AllergenSeverity allergenSeverity);
+        /// <param name="allergenReaction">The AllergenReaction</param>
+        /// <returns>The AllergenReactionViewModel</returns>
+        AllergenReactionViewModel Convert(AllergenReaction allergenReaction);
+
+
+        /// <summary>
+        /// Convert Drug to AllergenTypeViewModel
+        /// </summary>
+        /// <param name="drug">The Drug</param>
+        /// <returns>The MedicationViewModel</returns>
+        MedicationViewModel Convert(Drug drug);
+
+        /// <summary>
+        /// Convert List of versions to List of allergenSeverityViewModel
+        /// </summary>
+        /// <param name="allergenSeverities">The list of versions</param>
+        /// <returns>The list of allergenSeverityViewModel</returns>
+        List<AllergenSeverityViewModel> Convert(IEnumerable<AllergenSeverity> allergenSeverities);
+
+        List<AllergenTypeViewModel> Convert(IEnumerable<AllergenType> allergenTypes);
+
+        List<AllergenReactionViewModel> Convert(IEnumerable<AllergenReaction> allergenReactions);
+
+        List<AllergenViewModel> Convert(IEnumerable<Allergen> allergens);
+        List<MedicationViewModel> Convert(IEnumerable<Drug> drugs);
+
+        /*
+                /// <summary>
+                /// Convert AllergenSeverityViewModel to AllergenSeverity
+                /// </summary>
+                /// <param name="allergenSeverityViewModel">The AllergenSeverityViewModel</param>
+                /// <returns>The AllergenSeverity</returns>
+                AllergenSeverity Convert(AllergenSeverityViewModel allergenSeverityViewModel);
+
+                /// <summary>
+                /// Convert List of allergenSeverityViewModel to List of allergenSeverities
+                /// </summary>
+                /// <param name="allergenSeverityViewModel">The list of allergenSeverityViewModel</param>
+                /// <returns>The list of allergenSeverities</returns>
+                List<AllergenSeverity> Convert(List<AllergenSeverityViewModel> allergenSeverityViewModel);
+
+
+                /// <summary>
+                /// Convert AllergenSeverityViewModel to AllergenSeverity
+                /// </summary>
+                /// <param name="allergenSeverityViewModel">The AllergenSeverityViewModel</param>
+                /// <returns>The AllergenSeverity</returns>
+                AllergenSeverity Patch(AllergenSeverityViewModel allergenSeverityViewModel, AllergenSeverity allergenSeverity);
+
+                This is for create update only
+        */
     }
 }

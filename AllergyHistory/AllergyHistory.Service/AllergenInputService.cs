@@ -40,28 +40,43 @@ namespace AllergyHistory.Services
         public IEnumerable<AllergenSeverityViewModel> GetAllAllergenSeverity()
         {
             var domainEntityData = allergenSeverityRepository.GetAll();
-            return new List<AllergenSeverityViewModel>();
+
+            var viewModelData = conveter.Convert(domainEntityData);
+
+            return viewModelData;
         }
 
         public IEnumerable<AllergenTypeViewModel> GetAllAllergenType()
         {
             var domainEntityData = allergenTypeRepository.GetAll();
-            return new List<AllergenTypeViewModel>();
+
+            var viewModelData = conveter.Convert(domainEntityData);
+
+            return viewModelData;
         }
         public IEnumerable<AllergenViewModel> GetAllAllergen()
         {
             var domainEntityData = allergenRepository.GetAll();
-            return new List<AllergenViewModel>();
+
+            var viewModelData = conveter.Convert(domainEntityData);
+
+            return viewModelData;
         }
         public IEnumerable<AllergenReactionViewModel> GetAllAllergenReaction()
         {
             var domainEntityData = allergenReactionRepository.GetAll();
-            return new List<AllergenReactionViewModel>();
+
+            var viewModelData = conveter.Convert(domainEntityData);
+
+            return viewModelData; ;
         }
         public IEnumerable<MedicationViewModel> GetAllMedication()
         {
             var domainEntityData = drugRepository.GetAll();
-            return new List<MedicationViewModel>();
+
+            var viewModelData = conveter.Convert(domainEntityData);
+
+            return viewModelData;
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AllergyHistory.Contract.ViewModels;
+using AllergyHistory.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlleryHistory.API.Controllers
@@ -10,18 +12,27 @@ namespace AlleryHistory.API.Controllers
     [ApiController]
     public class AllergenController : ControllerBase
     {
+        private readonly IAllergenInputService allergenInputService;
+
+        public AllergenController(IAllergenInputService allergenInputService)
+        {
+            this.allergenInputService = allergenInputService;
+        }
+
         // GET api/allergen/reactions
         [HttpGet("reactions")]
         public ActionResult<IEnumerable<string>> GetAllegenReactions()
         {
-            return new string[] { "value1", "value2" };
+            var data = allergenInputService.GetAllAllergenReaction();
+            return Ok(data);
         }
 
         // GET api/allergen/severties
         [HttpGet("severties")]
-        public ActionResult<IEnumerable<string>> GetAllegenSeverties()
+        public ActionResult<IEnumerable<AllergenSeverityViewModel>> GetAllegenSeverties()
         {
-            return new string[] { "value1", "value2" };
+            var data = allergenInputService.GetAllAllergenSeverity();
+            return Ok(data);
         }
 
 
@@ -29,7 +40,8 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("medications")]
         public ActionResult<IEnumerable<string>> GetMedications()
         {
-            return new string[] { "value1", "value2" };
+            var data = allergenInputService.GetAllMedication();
+            return Ok(data);
         }
 
 
@@ -38,7 +50,16 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("types")]
         public ActionResult<IEnumerable<string>> GetAllegenTypes()
         {
-            return new string[] { "value1", "value2" };
+            var data = allergenInputService.GetAllAllergenType();
+            return Ok(data);
+        }
+
+        // GET api/allergen/allergens
+        [HttpGet("allergens")]
+        public ActionResult<IEnumerable<string>> GetAllegens()
+        {
+            var data = allergenInputService.GetAllAllergen();
+            return Ok(data);
         }
     }
 }

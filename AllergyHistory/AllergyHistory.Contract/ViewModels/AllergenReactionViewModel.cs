@@ -10,7 +10,7 @@ namespace AllergyHistory.Contract.ViewModels
     {
         public int CodeId { get; set; }
         public string CodeDesc { get; set; }
-        public int CodeValue { get; set; }
+        public string CodeValue { get; set; }
         public int TypeId { get; set; }
     }
 }
