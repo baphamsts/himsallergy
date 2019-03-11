@@ -23,4 +23,4 @@ $('#medicationSelectBox').change(function (e) {
 // Set value for selected box
 
 $('#medicationSelectBox').val(4);
-$('#medicationSelectBox').selectpicker('refresh');
+//$('#medicationSelectBox').selectpicker('refresh');

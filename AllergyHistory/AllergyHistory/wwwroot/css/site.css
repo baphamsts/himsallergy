@@ -97,13 +97,18 @@ body {
 
 .content {
     padding: 0px 18px;
-    max-height: 0;
     overflow: scroll;
+    display: none;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
+}
+
+.content.show {
+    display: block;
 }
 
 .content.overflow-hidden
 {
     overflow: hidden;
+    max-height: 1000px;
 }
