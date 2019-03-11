@@ -30,5 +30,12 @@ namespace AlleryHistory.API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("fakeDataToShow")]
+        public ActionResult<string> GetFakeDataToShow()
+        {
+            var data = allergyHistoryDataService.GetAllAllergenHistory();
+            return Ok(data);
+        }
+
     }
 }

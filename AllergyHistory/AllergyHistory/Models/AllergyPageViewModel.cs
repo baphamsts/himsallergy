@@ -1,10 +1,5 @@
-﻿using AllergyHistory.Contract.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace AllergyHistory.Models
 {

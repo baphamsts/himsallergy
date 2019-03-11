@@ -1,4 +1,5 @@
-﻿using AllergyHistory.Contract.ViewModels;
+﻿using AllergyHistory.Contract.DTOs;
+using AllergyHistory.Contract.ViewModels;
 using AllergyHistory.Helpers;
 using AllergyHistory.Models;
 using AllergyHistory.Services;
@@ -39,7 +40,7 @@ namespace AllergyHistory.Controllers
 
             string apiUrl = "http://localhost:51189/api/Allergen/types";
 
-            var allergenTypeList = await GetInputListViaAPI<AllergenTypeList>(apiUrl);
+            var allergenTypeList = await GetXmlDataListViaAPI<AllergenTypeList>(apiUrl);
 
             allergenTypeList.AllergenTypes.ForEach(x =>
             {
@@ -59,7 +60,7 @@ namespace AllergyHistory.Controllers
 
             string apiUrl = "http://localhost:51189/api/Allergen/reactions";
 
-            var allergenReactionList = await GetInputListViaAPI<AllergenReactionList>(apiUrl);
+            var allergenReactionList = await GetXmlDataListViaAPI<AllergenReactionList>(apiUrl);
 
             allergenReactionList.AllergenReactions.ForEach(x =>
             {
@@ -79,7 +80,7 @@ namespace AllergyHistory.Controllers
 
             string apiUrl = "http://localhost:51189/api/Allergen/severities";
 
-            var allergenSeverityList = await GetInputListViaAPI<AllergenSeverityList>(apiUrl);
+            var allergenSeverityList = await GetXmlDataListViaAPI<AllergenSeverityList>(apiUrl);
 
             allergenSeverityList.AllergenSeverities.ForEach(x =>
             {
@@ -100,7 +101,7 @@ namespace AllergyHistory.Controllers
 
             string apiUrl = "http://localhost:51189/api/Allergen/allergens";
 
-            var allergenList = await GetInputListViaAPI<AllergenList>(apiUrl);
+            var allergenList = await GetXmlDataListViaAPI<AllergenList>(apiUrl);
 
             allergenList.Allergens.ForEach(x =>
             {
@@ -120,7 +121,7 @@ namespace AllergyHistory.Controllers
 
             string apiUrl = "http://localhost:51189/api/Allergen/medications";
 
-            var medicationList = await GetInputListViaAPI<MedicationList>(apiUrl);
+            var medicationList = await GetXmlDataListViaAPI<MedicationList>(apiUrl);
 
             medicationList.Medications.ForEach(x =>
             {
@@ -136,7 +137,7 @@ namespace AllergyHistory.Controllers
 
 
 
-        private async Task<T> GetInputListViaAPI<T>(string apiUrl) where T: class
+        private async Task<T> GetXmlDataListViaAPI<T>(string apiUrl) where T : class
         {
             T returnListObject = default(T);
 
@@ -157,6 +158,53 @@ namespace AllergyHistory.Controllers
             }
 
             return returnListObject;
+        }
+
+
+        public async Task<IActionResult> LoadDataXml()
+        {
+            try
+            {
+                var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
+                var start = Request.Form["start"].FirstOrDefault();
+                var pageLength = Request.Form["length"].FirstOrDefault();
+                var searchPatientValue = Request.Form["search[value]"].FirstOrDefault();
+
+                //Paging Size (10,20,50,100, all = -1)  
+                int pageSize = pageLength != null ? Convert.ToInt32(pageLength) : 0;
+                int skip = start != null ? Convert.ToInt32(start) : 0;
+                int recordsTotal = 0;
+
+                var allergyHistoryList = await GetXmlDataListViaAPI<AllergenHistoryList>("http://localhost:51189/api/AllergyHistory");
+
+                var allergyHistoryData = allergyHistoryList.AllergenHistories.Select(x => new AllergenHistoryDataTableViewModel
+                {
+                    //Id = x.ClientId,
+                    Patient = x.ClientName,
+                    Type = x.Type,
+                    Allergen = x.Allergen,
+                    Reaction = x.ReactionDesc,
+                    Serverty = x.SeverityDesc,
+                    Notes = x.Notes,
+                    CreateInfo = $"{x.CreateDate} by {x.CreateUser}",
+                    UpdateInfo = $"{x.UpdateDate} by {x.UpdateUser}"
+                });
+
+                if (!string.IsNullOrEmpty(searchPatientValue))
+                {
+                    allergyHistoryData = allergyHistoryData.Where(m => m.Patient.Contains(searchPatientValue));
+                }
+
+                recordsTotal = allergyHistoryData.Count();
+
+                var data = pageSize == -1 ? allergyHistoryData : allergyHistoryData.Skip(skip).Take(pageSize);
+                return new JsonResult(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
 
