@@ -1,7 +1,9 @@
 ﻿using AllergyHistory.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace AllergyHistory.DAL.Repositories
 {
@@ -14,6 +16,19 @@ namespace AllergyHistory.DAL.Repositories
             this.dbContext = context;
         }
 
+
+        public string GetAllXml()
+        {
+            var xmlContent = File.ReadAllText(@"Data/Input/MedicationDropdown.xml");
+            return xmlContent;
+        }
+
+        /// <summary>
+        /// This is for other and modern approach
+        /// Instead of query RAW xml record in database.
+        /// We query as list object
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Drug> GetAll()
         {
             var fakeData = GenerateFakeData();

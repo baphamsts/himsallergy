@@ -11,5 +11,11 @@ namespace AllergyHistory.Services
         IEnumerable<AllergenReactionViewModel> GetAllAllergenReaction();
         IEnumerable<MedicationViewModel> GetAllMedication();
 
+        string GetAllAllergenSeverityXml();
+        string GetAllAllergenTypeXml();
+        string GetAllAllergenXml();
+        string GetAllAllergenReactionXml();
+        string GetAllMedicationXml();
+
     }
 }

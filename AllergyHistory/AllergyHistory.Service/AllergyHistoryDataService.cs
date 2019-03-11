@@ -28,6 +28,11 @@ namespace AllergyHistory.Services
             return viewModelData;
         }
 
+        public string GetAllAllergenHistoryXml()
+        {
+            return allergenHistoryRepository.GetAllXml();
+        }
+
         public IEnumerable<AllergenHistoryDataTableViewModel> GetAll()
         {
             /// Fake data here

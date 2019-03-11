@@ -1,6 +1,7 @@
 ﻿using AllergyHistory.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -55,10 +56,17 @@ namespace AllergyHistory.DAL.Repositories
             dbContext.SaveChanges();
         }
 
+        public string GetAllXml()
+        {
+            var xmlContent = File.ReadAllText(@"Data/Input/MedicationDropdown.xml");
+            return xmlContent;
+        }
+
         public void Delete(Patient Patient)
         {
             dbContext.Patients.Remove(Patient);
             dbContext.SaveChanges();
         }
+
     }
 }

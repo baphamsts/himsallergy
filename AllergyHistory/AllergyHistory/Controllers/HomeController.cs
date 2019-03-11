@@ -1,9 +1,15 @@
-﻿using AllergyHistory.Models;
+﻿using AllergyHistory.Contract.ViewModels;
+using AllergyHistory.Helpers;
+using AllergyHistory.Models;
 using AllergyHistory.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace AllergyHistory.Controllers
 {
@@ -15,11 +21,144 @@ namespace AllergyHistory.Controllers
         {
             this.allergyHistoryDataService = allergyHistoryDataService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //var model = new AllergenPageModel();
-            return View();
+            var model = new AllergyPageViewModel();
+            model.AllergenTypeSelectList = await BuildAllergenTypeSelectList();
+            model.AllergenReactionSelectList = await BuildAllergenReactionSelectList();
+            model.AllergenSeveritySelectList = await BuildAllergenSeveritySelectList();
+            model.AllergenSelectList = await BuildAllergenSelectList();
+            model.MedicationSelectList = await BuildMedicationSelectList();
+
+            return View(model);
         }
+
+        private async Task<List<SelectListItem>> BuildAllergenTypeSelectList()
+        {
+            var AllergenTypeSelectItems = new List<SelectListItem>();
+
+            string apiUrl = "http://localhost:51189/api/Allergen/types";
+
+            var allergenTypeList = await GetInputListViaAPI<AllergenTypeList>(apiUrl);
+
+            allergenTypeList.AllergenTypes.ForEach(x =>
+            {
+                AllergenTypeSelectItems.Add(new SelectListItem
+                {
+                    Value = x.CodeId.ToString(),
+                    Text = x.CodeText
+                });
+            });
+
+            return AllergenTypeSelectItems;
+        }
+
+        private async Task<List<SelectListItem>> BuildAllergenReactionSelectList()
+        {
+            var AllergenReactionSelectItems = new List<SelectListItem>();
+
+            string apiUrl = "http://localhost:51189/api/Allergen/reactions";
+
+            var allergenReactionList = await GetInputListViaAPI<AllergenReactionList>(apiUrl);
+
+            allergenReactionList.AllergenReactions.ForEach(x =>
+            {
+                AllergenReactionSelectItems.Add(new SelectListItem
+                {
+                    Value = x.CodeId.ToString(),
+                    Text = x.CodeDesc
+                });
+            });
+
+            return AllergenReactionSelectItems;
+        }
+
+        private async Task<List<SelectListItem>> BuildAllergenSeveritySelectList()
+        {
+            var allergenSeveritySelectItems = new List<SelectListItem>();
+
+            string apiUrl = "http://localhost:51189/api/Allergen/severities";
+
+            var allergenSeverityList = await GetInputListViaAPI<AllergenSeverityList>(apiUrl);
+
+            allergenSeverityList.AllergenSeverities.ForEach(x =>
+            {
+                allergenSeveritySelectItems.Add(new SelectListItem
+                {
+                    Value = x.CodeId.ToString(),
+                    Text = x.CodeDesc
+                });
+            });
+
+            return allergenSeveritySelectItems;
+        }
+
+
+        private async Task<List<SelectListItem>> BuildAllergenSelectList()
+        {
+            var AllergenSelectItems = new List<SelectListItem>();
+
+            string apiUrl = "http://localhost:51189/api/Allergen/allergens";
+
+            var allergenList = await GetInputListViaAPI<AllergenList>(apiUrl);
+
+            allergenList.Allergens.ForEach(x =>
+            {
+                AllergenSelectItems.Add(new SelectListItem
+                {
+                    Value = x.CodeId.ToString(),
+                    Text = x.CodeText
+                });
+            });
+
+            return AllergenSelectItems;
+        }
+
+        private async Task<List<SelectListItem>> BuildMedicationSelectList()
+        {
+            var medicationSelectItems = new List<SelectListItem>();
+
+            string apiUrl = "http://localhost:51189/api/Allergen/medications";
+
+            var medicationList = await GetInputListViaAPI<MedicationList>(apiUrl);
+
+            medicationList.Medications.ForEach(x =>
+            {
+                medicationSelectItems.Add(new SelectListItem
+                {
+                    Value = x.DrugId.ToString(),
+                    Text = x.DrugName
+                });
+            });
+
+            return medicationSelectItems;
+        }
+
+
+
+        private async Task<T> GetInputListViaAPI<T>(string apiUrl) where T: class
+        {
+            T returnListObject = default(T);
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiUrl);
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var xmlContent = await response.Content.ReadAsStringAsync();
+                    var wellFormatXml = $"<{typeof(T).Name}>{xmlContent}</{typeof(T).Name}> ";
+
+                    returnListObject = XmlHelper.DeserializeXMLStringToObject<T>(wellFormatXml);
+                }
+
+            }
+
+            return returnListObject;
+        }
+
 
         public IActionResult LoadData()
         {
@@ -37,7 +176,7 @@ namespace AllergyHistory.Controllers
 
                 var allergyHistoryData = allergyHistoryDataService.GetAll();
 
-               
+
                 if (!string.IsNullOrEmpty(searchPatientValue))
                 {
                     allergyHistoryData = allergyHistoryData.Where(m => m.Patient.Contains(searchPatientValue));

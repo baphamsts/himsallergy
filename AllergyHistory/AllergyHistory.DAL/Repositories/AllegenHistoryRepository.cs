@@ -1,6 +1,7 @@
 ﻿using AllergyHistory.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace AllergyHistory.DAL.Repositories
@@ -54,6 +55,11 @@ namespace AllergyHistory.DAL.Repositories
            
         }
 
+        public string GetAllXml()
+        {
+            var xmlContent = File.ReadAllText(@"Data/History/HistoryData.xml");
+            return xmlContent;
+        }
 
         /// <summary>
         /// This generate fake Domain data, considering that in this do main Enties, we call client is patient.

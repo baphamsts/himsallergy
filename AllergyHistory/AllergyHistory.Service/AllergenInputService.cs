@@ -78,5 +78,28 @@ namespace AllergyHistory.Services
 
             return viewModelData;
         }
+
+        public string GetAllAllergenSeverityXml()
+        {
+            return allergenSeverityRepository.GetAllXml();
+        }
+
+        public string GetAllAllergenTypeXml()
+        {
+            return allergenTypeRepository.GetAllXml();
+            
+        }
+        public string GetAllAllergenXml()
+        {
+            return allergenRepository.GetAllXml();
+        }
+        public string GetAllAllergenReactionXml()
+        {
+            return allergenReactionRepository.GetAllXml();
+        }
+        public string GetAllMedicationXml()
+        {
+            return drugRepository.GetAllXml();
+        }
     }
 }

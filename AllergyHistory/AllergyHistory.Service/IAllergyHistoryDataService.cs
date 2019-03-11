@@ -8,5 +8,6 @@ namespace AllergyHistory.Services
     {
         IEnumerable<AllergenHistoryDataTableViewModel> GetAll();
         IEnumerable<AllergenHistoryDTO> GetAllAllergenHistory();
+        string GetAllAllergenHistoryXml();
     }
 }

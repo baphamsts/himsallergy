@@ -25,15 +25,17 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("reactions")]
         public ActionResult<IEnumerable<AllergenReactionViewModel>> GetAllegenReactions()
         {
-            var data = allergenInputService.GetAllAllergenReaction();
+            //var data = allergenInputService.GetAllAllergenReaction();
+            var data = allergenInputService.GetAllAllergenReactionXml();
             return Ok(data);
         }
 
         // GET api/allergen/severties
-        [HttpGet("severties")]
+        [HttpGet("severities")]
         public ActionResult<IEnumerable<AllergenSeverityViewModel>> GetAllegenSeverties()
         {
-            var data = allergenInputService.GetAllAllergenSeverity();
+            //var data = allergenInputService.GetAllAllergenSeverity();
+            var data = allergenInputService.GetAllAllergenSeverityXml();
             return Ok(data);
         }
 
@@ -42,7 +44,8 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("medications")]
         public ActionResult<IEnumerable<MedicationViewModel>> GetMedications()
         {
-            var data = allergenInputService.GetAllMedication();
+            //var data = allergenInputService.GetAllMedication();
+            var data = allergenInputService.GetAllMedicationXml();
             return Ok(data);
         }
 
@@ -52,7 +55,8 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("types")]
         public ActionResult<IEnumerable<AllergenTypeViewModel>> GetAllegenTypes()
         {
-            var data = allergenInputService.GetAllAllergenType();
+            //var data = allergenInputService.GetAllAllergenType();
+            var data = allergenInputService.GetAllAllergenTypeXml();
             return Ok(data);
         }
 
@@ -60,7 +64,8 @@ namespace AlleryHistory.API.Controllers
         [HttpGet("allergens")]
         public ActionResult<IEnumerable<AllergenViewModel>> GetAllegens()
         {
-            var data = allergenInputService.GetAllAllergen();
+            //var data = allergenInputService.GetAllAllergen();
+            var data = allergenInputService.GetAllAllergenXml();
             return Ok(data);
         }
     }

@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace AllergyHistory.Contract.ViewModels
 {
+
+    [XmlRoot("AllergenHistoryList")]
+    public class AllergenHistoryList
+    {
+        [XmlElement("row")]
+        public List<AllergenHistoryDataTableViewModel> AllergenHistories { get; set; }
+    }
     public class AllergenHistoryDataTableViewModel
     {
         public int Id { get; set; }

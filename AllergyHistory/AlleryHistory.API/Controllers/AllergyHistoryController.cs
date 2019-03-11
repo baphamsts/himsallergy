@@ -21,12 +21,14 @@ namespace AlleryHistory.API.Controllers
             this.allergyHistoryDataService = allergyHistoryDataService;
         }
 
-        // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<AllergenHistoryDTO>> Get()
+        public ActionResult<string> Get()
         {
-            var data = allergyHistoryDataService.GetAllAllergenHistory();
+            //var data = allergyHistoryDataService.GetAllAllergenHistory();
+
+            var data = allergyHistoryDataService.GetAllAllergenHistoryXml();
             return Ok(data);
         }
+
     }
 }

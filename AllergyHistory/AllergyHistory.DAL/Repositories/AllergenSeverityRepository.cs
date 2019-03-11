@@ -1,6 +1,7 @@
 ﻿using AllergyHistory.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace AllergyHistory.DAL.Repositories
@@ -12,6 +13,12 @@ namespace AllergyHistory.DAL.Repositories
         public AllergenSeverityRepository(AllergyHistoryContext context)
         {
             this.dbContext = context;
+        }
+
+        public string GetAllXml()
+        {
+            var xmlContent = File.ReadAllText(@"Data/Input/AllergenSeverityDropdown.xml");
+            return xmlContent;
         }
 
         public IEnumerable<AllergenSeverity> GetAll()
