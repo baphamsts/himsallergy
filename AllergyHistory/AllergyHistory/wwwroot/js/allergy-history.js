@@ -20,8 +20,13 @@ $(document).ready(function () {
             "type": "POST",
             "datatype": "json"
         },
-
+    
         "columns": [
+            { "data": "id", "name": "id", "autoWidth": true, "className": "hide_column" },
+            { "data": "allergenId", "name": "allergenId", "autoWidth": true, "className": "hide_column" },
+            { "data": "allergenType", "name": "allergenType", "autoWidth": true, "className": "hide_column" },
+            { "data": "reactionId", "name": "reactionId", "autoWidth": true, "className": "hide_column" },
+            { "data": "severityId", "name": "severityId", "autoWidth": true, "className": "hide_column" },
             { "data": "patient", "name": "patient", "autoWidth": true },
             { "data": "type", "name": "type", "autoWidth": true },
             { "data": "allergen", "name": "allergen", "autoWidth": true },
@@ -90,11 +95,14 @@ $(document).ready(function () {
         ]
     });
 
+    //dataTable.columns([0, 1, 2, 3, 4]).visible(false, false);
+    //dataTable.columns.adjust().draw(false);
+
     $('.selectpicker').selectpicker();
 });
 
 function EditDataInput(AllergenHistoryId) {
-    
+
 }
 
 

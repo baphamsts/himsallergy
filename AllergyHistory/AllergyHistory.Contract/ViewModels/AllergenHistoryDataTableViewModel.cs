@@ -76,6 +76,10 @@ namespace AllergyHistory.Contract.ViewModels
         public class AllergenHistoryDataTableViewModel
     {
         public int Id { get; set; }
+        public int AllergenId { get; set; }
+        public int AllergenType { get; set; }
+        public int ReactionId { get; set; }
+        public int SeverityId { get; set; }
         public string Patient { get; set; }
         public string Type { get; set; }
         public string Allergen { get; set; }

@@ -179,7 +179,11 @@ namespace AllergyHistory.Controllers
 
                 var allergyHistoryData = allergyHistoryList.AllergenHistories.Select(x => new AllergenHistoryDataTableViewModel
                 {
-                    //Id = x.ClientId,
+                    Id = x.ClientId,
+                    AllergenId = x.AllergenId,
+                    AllergenType = x.AllergenType,
+                    ReactionId = x.ReactionId,
+                    SeverityId = x.SeverityId,
                     Patient = x.ClientName,
                     Type = x.Type,
                     Allergen = x.Allergen,
