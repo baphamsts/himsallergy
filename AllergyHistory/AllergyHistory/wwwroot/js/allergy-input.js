@@ -1,16 +1,6 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-
-var selectedAllergen;
-var selectedAllergenType;
-var selectedAllergenReaction;
-var selectedAllergenSeverity;
-var selectedMedication;
-
-
-// get value from selected box
-
 $('#allergenTypeSelectBox').change(function (e) {
     console.log($('#allergenTypeSelectBox').val());
     var typeId = $('#allergenTypeSelectBox').val();
@@ -23,22 +13,12 @@ $('#allergenTypeSelectBox').change(function (e) {
         $('#medicationOption').hide();
     }
 
-    ////alert(e.target.value);
-    //selectedMedication = e.target.value;
-    //$('#medicationSelectBox').value = e.target.value;
-
-    console.log($('#allergenTypeSelectBox').val());
 });
-
-
-// Set value for selected box
-
-//$('#medicationSelectBox').selectpicker('refresh');
 
 $("#submitButton").click(function (e) {
     e.preventDefault();
 
-    var data = {
+    var dataObj = {
         typeId: $('#allergenTypeSelectBox').val(),
         severityId: $('#allergenSeveritySelectBox').val(),
         reactionId: $('#allergenReactionSelectBox').val(),
@@ -49,19 +29,15 @@ $("#submitButton").click(function (e) {
 
     console.log(data);
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: "/imball-reagens/public/shareitem",
-    //    data: {
-    //        id: $("#Shareitem").val(),
-    //        access_token: $("#access_token").val(),
+    $.ajax({
+        type: "POST",
+        url: "/imball-reagens/public/shareitem",
+        data: dataObj,
 
-    //    },
-
-    //    success: function (result) {
-    //        $("#sharelink").html(result);
-    //    }
-    //});
+        success: function (result) {
+           
+        }
+    });
 });
 
 

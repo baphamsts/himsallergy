@@ -37,7 +37,13 @@ $(document).ready(function () {
             { "data": "updateInfo", "name": "updateInfo", "autoWidth": true },
             {
                 data: null, render: function (data, type, row) {
-                    return "<a href='#' class='btn btn-inf' onclick=EditDataInput('" + row.allergenId + "'); >Edit</a>";
+                    return "<a href='#' class='btn btn-inf' onclick=EditDataInput("
+                        //+ row.typeId + ',' +
+                        + row.allergenId + ',' +
+                        + row.reactionId + ',' +
+                        + row.severityId +
+                        //+ row.drugId + ',' +
+                        "); >Edit</a>";
                 }
             },
         ],
@@ -101,33 +107,23 @@ $(document).ready(function () {
     $('.selectpicker').selectpicker();
 });
 
-function EditDataInput(row) {
-    console.log(row);
-}
+function EditDataInput(allergenId, reactionId, severityId) {
+    $('#allergenTypeSelectBox').val(-1);
+    $('#allergenTypeSelectBox').selectpicker('refresh');
 
+    $('#allergenSeveritySelectBox').val(severityId);
+    $('#allergenSeveritySelectBox').selectpicker('refresh');
 
-function DeleteData(CustomerID) {
-    if (confirm("Are you sure you want to delete ...?")) {
-        Delete(CustomerID);
-    }
-    else {
-        return false;
-    }
-}
+    $('#allergenReactionSelectBox').val(reactionId);
+    $('#allergenReactionSelectBox').selectpicker('refresh');
 
+    $('#allergenSelectBox').val(allergenId);
+    $('#allergenSelectBox').selectpicker('refresh');
 
-function Delete(CustomerID) {
-    var url = '@Url.Content("~/")' + "DemoGrid/Delete";
+    $('#medicationSelectBox').val(-1);
+    $('#medicationSelectBox').selectpicker('refresh');
 
-    $.post(url, { ID: CustomerID }, function (data) {
-        if (data) {
-            oTable = $('#example').DataTable();
-            oTable.draw();
-        }
-        else {
-            alert("Something Went Wrong!");
-        }
-    });
+    $('#noteText').val("");
 }
 
 
