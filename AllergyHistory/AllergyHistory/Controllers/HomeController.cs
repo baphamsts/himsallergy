@@ -36,7 +36,8 @@ namespace AllergyHistory.Controllers
 
         private async Task<List<SelectListItem>> BuildAllergenTypeSelectList()
         {
-            var AllergenTypeSelectItems = new List<SelectListItem>();
+            var allergenTypeSelectItems = new List<SelectListItem>();
+            allergenTypeSelectItems.Add(new SelectListItem { Value = "-1", Text = "Please select an option" });
 
             string apiUrl = "http://localhost:51189/api/Allergen/types";
 
@@ -44,19 +45,20 @@ namespace AllergyHistory.Controllers
 
             allergenTypeList.AllergenTypes.ForEach(x =>
             {
-                AllergenTypeSelectItems.Add(new SelectListItem
+                allergenTypeSelectItems.Add(new SelectListItem
                 {
                     Value = x.CodeId.ToString(),
                     Text = x.CodeText
                 });
             });
 
-            return AllergenTypeSelectItems;
+            return allergenTypeSelectItems;
         }
 
         private async Task<List<SelectListItem>> BuildAllergenReactionSelectList()
         {
-            var AllergenReactionSelectItems = new List<SelectListItem>();
+            var allergenReactionSelectItems = new List<SelectListItem>();
+            allergenReactionSelectItems.Add(new SelectListItem { Value = "-1", Text = "Please select an option" });
 
             string apiUrl = "http://localhost:51189/api/Allergen/reactions";
 
@@ -64,19 +66,20 @@ namespace AllergyHistory.Controllers
 
             allergenReactionList.AllergenReactions.ForEach(x =>
             {
-                AllergenReactionSelectItems.Add(new SelectListItem
+                allergenReactionSelectItems.Add(new SelectListItem
                 {
                     Value = x.CodeId.ToString(),
                     Text = x.CodeDesc
                 });
             });
 
-            return AllergenReactionSelectItems;
+            return allergenReactionSelectItems;
         }
 
         private async Task<List<SelectListItem>> BuildAllergenSeveritySelectList()
         {
             var allergenSeveritySelectItems = new List<SelectListItem>();
+            allergenSeveritySelectItems.Add(new SelectListItem { Value = "-1", Text = "Please select an option" });
 
             string apiUrl = "http://localhost:51189/api/Allergen/severities";
 
@@ -97,7 +100,8 @@ namespace AllergyHistory.Controllers
 
         private async Task<List<SelectListItem>> BuildAllergenSelectList()
         {
-            var AllergenSelectItems = new List<SelectListItem>();
+            var allergenSelectItems = new List<SelectListItem>();
+            allergenSelectItems.Add(new SelectListItem { Value = "-1", Text = "Please select an option" });
 
             string apiUrl = "http://localhost:51189/api/Allergen/allergens";
 
@@ -105,19 +109,20 @@ namespace AllergyHistory.Controllers
 
             allergenList.Allergens.ForEach(x =>
             {
-                AllergenSelectItems.Add(new SelectListItem
+                allergenSelectItems.Add(new SelectListItem
                 {
                     Value = x.CodeId.ToString(),
                     Text = x.CodeText
                 });
             });
 
-            return AllergenSelectItems;
+            return allergenSelectItems;
         }
 
         private async Task<List<SelectListItem>> BuildMedicationSelectList()
         {
             var medicationSelectItems = new List<SelectListItem>();
+            medicationSelectItems.Add(new SelectListItem { Value = "-1", Text = "Please select an option" });
 
             string apiUrl = "http://localhost:51189/api/Allergen/medications";
 

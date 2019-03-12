@@ -37,7 +37,7 @@ $(document).ready(function () {
             { "data": "updateInfo", "name": "updateInfo", "autoWidth": true },
             {
                 data: null, render: function (data, type, row) {
-                    return "<a href='#' class='btn btn-inf' onclick=EditDataInput('" + row.patient + "'); >Edit</a>";
+                    return "<a href='#' class='btn btn-inf' onclick=EditDataInput('" + row.allergenId + "'); >Edit</a>";
                 }
             },
         ],
@@ -101,8 +101,8 @@ $(document).ready(function () {
     $('.selectpicker').selectpicker();
 });
 
-function EditDataInput(AllergenHistoryId) {
-
+function EditDataInput(row) {
+    console.log(row);
 }
 
 

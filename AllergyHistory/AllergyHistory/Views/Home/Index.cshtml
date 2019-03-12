@@ -7,7 +7,7 @@
             <div class="col-md-3 offset-md-0 col-sm-12 filter-box">
                 <span class="prefix-box-icon"><i class="fa fa-filter" aria-hidden="true"></i></span>
                 <select class="selectpicker show-tick">
-                    <optionv value="1">Active</optionv>
+                    <option value="1">Active</option>
                     <option value="0">Inactive</option>
                 </select>
 
@@ -54,21 +54,21 @@
             <div class="col-md-3 col-sm-12">
                 <div class="form-group">
                     <div><label for="allergenTypeSelectBox">Allergen Type</label> </div>
-                    <select  asp-items="Model.AllergenTypeSelectList" class="selectpicker show-tick"></select>
+                    <select id="allergenTypeSelectBox" asp-items="Model.AllergenTypeSelectList" class="selectpicker show-tick"></select>
                 </div>
             </div>
 
             <div class="col-md-3 offset-md-1 col-sm-12">
                 <div class="form-group">
                     <div><label for="allergenSeveritySelectBox">Severity</label></div>
-                    <select asp-items="Model.AllergenSeveritySelectList" class="selectpicker show-tick"></select>
+                    <select id="allergenSeveritySelectBox" asp-items="Model.AllergenSeveritySelectList" class="selectpicker show-tick"></select>
                 </div>
             </div>
 
             <div class="col-md-3 offset-md-1 col-sm-12">
                 <div class="form-group">
                     <div><label for="allergenReactionSelectBox">Reaction</label></div>
-                    <select asp-items="Model.AllergenReactionSelectList" class="selectpicker show-tick"></select>
+                    <select id="allergenReactionSelectBox" asp-items="Model.AllergenReactionSelectList" class="selectpicker show-tick"></select>
                 </div>
             </div>
         </div>
@@ -77,13 +77,13 @@
             <div class="col-md-3 col-sm-12">
                 <div class="form-group">
                     <div><label for="allergenSelectBox">Allergen</label></div>
-                    <select asp-items="Model.AllergenSelectList" class="selectpicker show-tick"></select>
+                    <select id="allergenSelectBox" asp-items="Model.AllergenSelectList" class="selectpicker show-tick"></select>
                 </div>
             </div>
-            <div class="col-md-3 offset-md-1 col-sm-12">
+            <div id="medicationOption" class="col-md-3 offset-md-1 col-sm-12">
                 <div class="form-group">
                     <div><label for="medicationSelectBox">Medication</label></div>
-                    <select asp-items="Model.MedicationSelectList" class="selectpicker show-tick"></select>
+                    <select id="medicationSelectBox" asp-items="Model.MedicationSelectList" class="selectpicker show-tick"></select>
                 </div>
             </div>
         </div>
@@ -96,8 +96,8 @@
         </div>
 
         <div id="form-buttons" class="form-buttons">
-            <button type="submit" class="btn btn-success">SUBMIT</button>
-            <button type="submit" class="btn btn-warning">RESET</button>
+            <button id="submitButton" type="button" class="btn btn-success">SUBMIT</button>
+            <button id="resetButton" type="button" class="btn btn-warning">RESET</button>
         </div>
     </div>
 </div>

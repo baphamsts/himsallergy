@@ -11,3 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .form-buttons {
     margin-bottom: 30px;
 }
+
+#medicationOption {
+    display: none;
+}

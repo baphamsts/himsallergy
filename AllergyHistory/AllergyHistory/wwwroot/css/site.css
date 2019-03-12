@@ -78,37 +78,37 @@ body {
     font-size: 15px;
 }
 
-.collapsible:after {
-    content: '\25bc';
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-}
+    .collapsible:after {
+        content: '\25bc';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
 
-.collapsible.active, .collapsible:hover {
-    background-color: #9a14c7;
-}
+    .collapsible.active, .collapsible:hover {
+        background-color: #9a14c7;
+    }
 
-.collapsible.active:after {
-    content: "\25b2";
-}
+        .collapsible.active:after {
+            content: "\25b2";
+        }
 
 
 .content {
     padding: 0px 18px;
-    overflow: scroll;
+    /*overflow: scroll;*/
     display: none;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
 }
 
-.content.show {
-    display: block;
-}
+    .content.show {
+        display: block;
+        padding: 30px 20px;
+    }
 
-.content.overflow-hidden
-{
-    overflow: hidden;
-    max-height: 1000px;
-}
+    .content.overflow-hidden {
+        overflow: hidden;
+        max-height: 1000px;
+    }

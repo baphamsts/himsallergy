@@ -25,6 +25,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .hide_column {
     display: none;
 }
+
 td.text-wrap {
     white-space: normal;
 }
@@ -39,28 +40,27 @@ td.text-wrap {
     padding: 0;
 }
 
-.allergy-table-button
-{
+.allergy-table-button {
     float: right;
     margin-bottom: 6px;
 }
 
 .allergy-searchbox {
     float: left;
-    position:relative;
+    position: relative;
     left: -6px;
     padding: 0;
 }
 
-.allergy-searchbox label {
-    display: grid;
-}
+    .allergy-searchbox label {
+        display: grid;
+    }
 
-.allergy-searchbox input {
-    width: 256px !important;
-    height: 38px;
-    margin-bottom: 6px;
-}
+    .allergy-searchbox input {
+        width: 256px !important;
+        height: 38px;
+        margin-bottom: 6px;
+    }
 
 @media screen and (max-width: 767px) {
     .allergy-table-button {
